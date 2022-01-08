@@ -21,7 +21,8 @@ const validateLogin = [
     handleValidationErrors,
 ];
 
-// Log in
+// Log in , path is actually '/api/session', which is corresponding to
+// the thunk function login in "/frontend/src/store/session.js".
 router.post(
     '/',
     validateLogin,
@@ -46,7 +47,8 @@ router.post(
     }),
 );
 
-// Log out
+// Log out, path is acutally './api/session', which is corresponding 
+// to the thunk function logout in 'frontend/src/store/session.js'
 router.delete(
     '/',
     (_req, res) => {
@@ -55,7 +57,8 @@ router.delete(
     }
 );
 
-// Restore session user
+// Restore session user, path is acutally './api/session', which is 
+// corresponding to the thunk function restoreUser in "/frontend/src/store/session.js".
 router.get(
     '/',
     restoreUser,

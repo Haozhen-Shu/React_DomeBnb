@@ -16,6 +16,7 @@ const removeUser = () => {
     };
 };
 
+// login corresponds to backend/routes/api/session.js
 export const login = (user) => async (dispatch) => {
     const { credential, password } = user;
     const response = await csrfFetch('/api/session', {
@@ -30,6 +31,7 @@ export const login = (user) => async (dispatch) => {
     return response;
 };
 
+//restoreUser corresponds to backend/routes/api/session.js
 export const restoreUser = () => async dispatch => {
     const response = await csrfFetch('/api/session');
     const data = await response.json();
@@ -37,6 +39,7 @@ export const restoreUser = () => async dispatch => {
     return response;
 };
 
+// signup corresponds to backend/routes/api/users.js
 export const signup = (user) => async (dispatch) => {
     const { username, email, password } = user;
     const response = await csrfFetch("/api/users", {
@@ -52,6 +55,7 @@ export const signup = (user) => async (dispatch) => {
     return response;
 };
 
+// logout corresponds to backend/routes/api/session.js
 export const logout = () => async (dispatch) => {
     const response = await csrfFetch('/api/session', {
         method: 'DELETE',
@@ -68,6 +72,8 @@ const sessionReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_USER:
             newState = Object.assign({}, state);
+            //Object.assign copies all properties from one or more source
+            // object to a target object
             newState.user = action.payload;
             return newState;
         case REMOVE_USER:

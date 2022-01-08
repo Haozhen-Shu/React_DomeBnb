@@ -21,7 +21,6 @@
     "sequelize-cli": "^5.5.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "sequelize": "sequelize",
     "sequelize-cli": "sequelize-cli",
     "start": "per-env",

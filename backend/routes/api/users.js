@@ -28,7 +28,8 @@ const validateSignup = [
     handleValidationErrors,
 ];
 
-// Sign up
+// Sign up, the acual path is '/api/users.js', which is corresponding to 
+// the thunk funtion signup in '/frontend/src/store/session.js'
 router.post(
     '/',
     validateSignup,
