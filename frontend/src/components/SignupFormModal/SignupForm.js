@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
-import styles from './LoginForm.css';
+import styles from './SignupForm.css';
 
-function LoginForm() {
+function SignupForm() {
     const dispatch = useDispatch();
     const [credential, setCredential] = useState("");
     const [password, setPassword] = useState("");
@@ -43,17 +43,17 @@ function LoginForm() {
                         required
                     />
                 </div>
-            
+
                 <div className={styles.login_input_div}>
                     <label>
                         Password
                     </label>
-                        <input
-                            type="password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            required
-                        />
+                    <input
+                        type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                    />
                 </div>
             </div>
             <div id={styles.login_btn_div}>
@@ -63,4 +63,4 @@ function LoginForm() {
     );
 }
 
-export default LoginForm;
+export default SignupForm;

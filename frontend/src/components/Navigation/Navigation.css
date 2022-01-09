@@ -1,0 +1,35 @@
+/* #nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 40px;
+    width: 100%;
+    background-color: black;
+} */
+
+
+#nav {
+    text-align: center;
+    display:inline-block;
+    vertical-align: top;
+}
+#logo_div {
+    height:40px;
+    width: 40px;
+}
+
+.log {
+    height: 100%;
+    width: 100%;
+}
+
+
+ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+
+}
+
+
