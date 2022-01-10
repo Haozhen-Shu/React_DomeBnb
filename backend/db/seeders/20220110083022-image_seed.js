@@ -2,7 +2,7 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-      return queryInterface.bulkInsert('People', [
+      return queryInterface.bulkInsert('Images', [
         {
           spotId: 1,
           Url: 'https://a0.muscache.com/im/pictures/prohost-api/Hosting-49118131/original/277aed14-970b-4f1f-98b5-7cf41906d053.jpeg?im_w=960'
@@ -52,6 +52,6 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-      return queryInterface.bulkDelete('People', null, {});
+      return queryInterface.bulkDelete('Images', null, {});
   }
 };
