@@ -4,8 +4,8 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
-import Splash from './components/Splash';
-import Listing from './components/Listing';
+import Splash from './components/SplashPage';
+import Listing from './components/Spots';
 import Footer from './components/Footer';
 
 function App() {

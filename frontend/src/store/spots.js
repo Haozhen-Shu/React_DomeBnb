@@ -16,8 +16,10 @@ const removeDome = () => {
     }
 }
 
-const listingReducer = () => {
+ export const addDome  =()
+
+const spotsReducer = () => {
 
 }
 
-export default listingReducer;
+export default spotsReducer;
