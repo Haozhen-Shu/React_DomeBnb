@@ -5,6 +5,7 @@ import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import Splash from './components/Splash';
+import Listing from './components/Listing';
 import Footer from './components/Footer';
 
 function App() {
@@ -21,6 +22,9 @@ function App() {
         <Switch>
           <Route path="/signup">
             <SignupFormPage />
+          </Route>
+          <Route path='/listing'>
+            {/* <Listing /> */}
           </Route>
           <Route path='/' exact>
             <Splash />
