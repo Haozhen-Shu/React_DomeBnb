@@ -28,11 +28,11 @@ function LoginForm() {
             </div>
             <ul className={styles.login_errors}>
                 {errors.map((error, idx) => (
-                    <li key={idx}>{error}</li>
+                    <li id={styles.errors} key={idx}>{error}</li>
                 ))}
             </ul>
             <div id={styles.login_input_container}>
-                <div classsName={styles.login_input_div}>
+                <div className={styles.login_input_div}>
                     <label>
                         Username or Email
                     </label>

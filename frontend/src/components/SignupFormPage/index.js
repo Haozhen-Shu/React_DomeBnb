@@ -30,65 +30,67 @@ function SignupFormPage() {
 
     return (
         <form onSubmit={handleSubmit} id={styles.signup_form}>
-            <div id={styles.signup_header_div}>
-                <h2 id={styles.signup_header}>Create an Account</h2>
-            </div>
-
-            <ul id={styles.signup_errors}>
-                {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-            </ul>
-
-            <div id={styles.signup_input_container}>
-                <div id={styles.signup_input}>
-                    <label>
-                        Email
-                    </label>
-                    <input
-                        type="text"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
-                    />
+            <div id={styles.singup_content_wrapper}>
+                <div id={styles.signup_header_div}>
+                    <h2 id={styles.signup_header}>Create an Account</h2>
                 </div>
 
-                <div id={styles.signup_input}>
-                    <label>
-                        Username
-                    </label>
-                    <input
-                        type="text"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
-                        required
-                    />
-                    </div>
+                <ul id={styles.signup_errors}>
+                    {errors.map((error, idx) => <li className={styles.errors} key={idx}>{error}</li>)}
+                </ul>
 
-                    <div>
+                <div id={styles.signup_input_container}>
+                    <div id={styles.signup_input_div}>
                         <label>
-                            Password
+                            Email
                         </label>
                         <input
-                            type="password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
+                            type="text"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
                             required
                         />
                     </div>
 
-                    <div>
+                    <div id={styles.signup_input_div}>
                         <label>
-                            Confirm Password
+                            Username
                         </label>
                         <input
-                            type="password"
-                            value={confirmPassword}
-                            onChange={(e) => setConfirmPassword(e.target.value)}
+                            type="text"
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
                             required
                         />
+                    </div>
+
+                    <div id={styles.signup_input_div}>
+                            <label>
+                                Password
+                            </label>
+                            <input
+                                type="password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                required
+                            />
+                    </div>
+
+                    <div id={styles.signup_input_div}>
+                            <label>
+                                Confirm Password
+                            </label>
+                            <input
+                                type="password"
+                                value={confirmPassword}
+                                onChange={(e) => setConfirmPassword(e.target.value)}
+                                required
+                            />
                     </div>  
                 </div>
-            <div id={styles.signup_btn}> 
-                <button type="submit">Sign Up</button>
+                <div id={styles.signup_btn}> 
+                    <button type="submit">Sign Up</button>
+                </div>
             </div>
         </form>
     );
