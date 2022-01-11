@@ -89,12 +89,16 @@ const spotsReducer = (state=initialState, action) => {
     switch (action.type) {
         case GET_ALL_DOMES:
             const allDomes = {};
-            action.list.forEach(dome => {
+            const allImages = {};
+            action.list[0].forEach(dome => {
                 allDomes[dome.id] = dome;
             });
+            action.list[1].forEach(img =>{
+                allImages[img.id] = img;
+            })
             return {
-                ...allDomes,
-                ...state,
+                allDomes,
+                allImages,
                 list:action.list
             };
         case ADD_DOME:

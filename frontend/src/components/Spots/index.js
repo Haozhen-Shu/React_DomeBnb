@@ -5,45 +5,53 @@ import styles from './Spots.css';
 import {getDomes} from '../../store/spots';
 
 function SpotsPage () {
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
     // const {domeId} = useParams();
-    // const dome = useSelector(state => {
-    //     // console.log("state", state)
-    //     return state.spots.list.map(domeId => state.spots[domeId]);
-    // })
+    const domes = useSelector(state => state.spots);
+    let dome_list;
+    let image_list;
 
-    // useEffect(() => {
-    //     dispatch(getDomes())
-    // },[dispatch]);
+    if (domes.allDomes) {
+        dome_list = Object.entries(domes.allDomes);
+    }
+
+    if (domes.allImages) {
+       image_list = Object.entries(domes.allImages)
+    }
+
+    useEffect(() => {
+        dispatch(getDomes(domes))
+    },[dispatch]);
     
-    // if (!dome) {
-    //     return null;
-    // }
+    if (!domes.allDomes || !domes.allImages) {
+        return null;
+    }
 
-    return ( null
-    //     <div>
-    //         <div id={styles.listing_header}>
-    //             <h3>Domes</h3>
-    //             <div id={styles.listing_filters}>
-    //                 <button id={styles.filter_btn}>Anytime</button>
-    //                 <button id={styles.filter_btn}>Guests</button>
-    //                 <button id={styles.filter_btn}>Filters</button>
-    //             </div>
-    //         </div>
-    //         <div id={styles.listing_container}>
-    //             {dome.map(dome => {
-    //                 return (
-    //                     <NavLink id={styles.spot_container} key={dome.name} to={`/spots/${domeId}`}>
-    //                         <img src={dome.url} alt={dome.name} className={styles.spots_dome_img}></img>
-    //                         <div className={styles.spots_dome_name}>{dome.name}</div>
-    //                         <div className={styles.spots_dom_price}>{dome.price}</div>
-    //                         <div className={styles.spots_dom_address}>{dome.address}</div>
-    //                     </NavLink>
-    //                 )
-    //             } )}
-    //         </div>
+    return (
+        <div>
+            <div id={styles.listing_header}>
+                <p>Domes</p>
+                <div id={styles.listing_filters}>
+                    <button id={styles.filter_btn}>Anytime</button>
+                    <button id={styles.filter_btn}>Guests</button>
+                    <button id={styles.filter_btn}>Filters</button>
+                </div>
+            </div>
+            <div id={styles.listing_container}>
+                {dome_list.map(dome => {
+                    const img = image_list.find(img =>img.spotId === dome.id)
+                    return (
+                        <NavLink id={styles.spot_container} key={dome.id} to={`/spots/${dome.id}`}>
+                            <img src={img.url} alt={dome.name} key={img.id} className={styles.spots_dome_img}></img>
+                            <div key={dome.name} className={styles.spots_dome_name}>{dome.name}</div>
+                            <div key={dome.price} className={styles.spots_dom_price}>{dome.price}</div>
+                            <div key={dome.address} className={styles.spots_dom_address}>{dome.address}</div>
+                        </NavLink>
+                    )
+                } )}
+            </div>
 
-    //     </div>
+        </div>
     );
 }
 
