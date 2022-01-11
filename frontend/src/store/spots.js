@@ -1,5 +1,4 @@
 import { csrfFetch } from './csrf';
-import {useDispatch} from 'react-redux';
 
 const ADD_DOME ='spots/addDome';
 const REMOVE_DOME ='spots/removeDome';
@@ -25,6 +24,14 @@ const removeDome = () => {
     }
 };
 
+export const getOneDome = (id) =>async (dispatch) => {
+    const response = await csrfFetch(`/api/spots/${id}`);
+    if (response.ok) {
+        const dome = await response.json();
+        dispatch(addDome(dome));
+    }
+}
+
 export const getDomes = () => async (dispatch) => {
     const response = await csrfFetch('/api/spots');
     if (response.ok) {
@@ -33,29 +40,44 @@ export const getDomes = () => async (dispatch) => {
     }
 }
 
-export const createDome  = (dome) => async (dispatch)  =>{
-    const {userId,address,city,state,country,name,price} = dome;
+export const createDome  = (data) => async (dispatch)  =>{
     const response = await csrfFetch('/api/spots', {
-        method: 'POST',
+        method: 'post',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({
-            userId,
-            address,
-            city,
-            state, 
-            country,
-            name,
-            price,
-        })
-    })
-    if (response.ok) {
-        const data = await response.json();
-        dispatch(addDome(data.dome))
-        return data;
+        body: JSON.stringify(data)
+    });
+        if (response.ok) {
+        const dome = await response.json();
+        dispatch(addDome(dome))
+        return dome;
     }
 }
+
+export const updateDome = (data) => async (dispatch) => {
+    const response = await csrfFetch(`/api/spots/${data.id}`, {
+        method: 'put',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    });
+    if (response.ok) {
+        const dome = await response.json();
+        dispatch(addDome(dome))
+        return dome;
+    }
+}
+
+export const deleteDome = (id) => async (dispatch) => {
+    const response = await csrfFetch(`/api/spots/${id}`, {
+        method: 'DELETE',
+    });
+    dispatch(removeDome);
+    return response;
+}
+
 
  const initialState= {
      list:[]
@@ -78,6 +100,10 @@ const spotsReducer = (state=initialState, action) => {
         case ADD_DOME:
             newState =Object.assign({}, state);
             newState.dome = action.payload;
+            return newState;
+        case REMOVE_DOME:
+            newState = Object.assign({}, state);
+            newState.dome = null;
             return newState;
         default:
             return state;

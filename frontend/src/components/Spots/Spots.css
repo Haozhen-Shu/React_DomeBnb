@@ -1,5 +1,6 @@
 #listing_header {
     display: flex;
+    flex-direction: row;
     justify-content: space-around;
     border-radius: 7px;
 };
