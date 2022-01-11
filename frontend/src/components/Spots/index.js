@@ -1,10 +1,25 @@
-import React, { useState } from "react";
-import * as sessionActions from "../../store/session";
-import { useDispatch } from "react-redux";
+import React, { useEffect, useState } from "react";
+import {useParams, NavLink} from 'react-router-dom'
+import { useDispatch, useSelector } from "react-redux";
 import styles from './Spots.css';
+import {getDomes} from '../../store/spots';
 
-function listing () {
-    // const dispatch = useDispatch();
+function SpotsPage () {
+    const dispatch = useDispatch();
+    const {domeId} = useParams();
+    const dome = useSelector(state => {
+        console.log("state", state)
+        return state.spots.list.map(domeId => state.spots.list[domeId]);
+    })
+
+    useEffect(() => {
+        dispatch(getDomes())
+    },[dispatch]);
+    
+    if (!dome) {
+        return null;
+    }
+
     return (
         <div>
             <div id={styles.listing_header}>
@@ -18,11 +33,20 @@ function listing () {
                 </div>
             </div>
             <div id={styles.listing_container}>
-                
+                {dome.map(dome => {
+                    return (
+                        <NavLink id={styles.spot_container} key={dome.name} to={`/spots/${domeId}`}>
+                            <img src={dome.url} alt={dome.name} className={styles.spots_dome_img}></img>
+                            <div className={styles.spots_dome_name}>{dome.name}</div>
+                            <div className={styles.spots_dom_price}>{dome.price}</div>
+                            <div className={styles.spots_dom_address}>{dome.address}</div>
+                        </NavLink>
+                    )
+                } )}
             </div>
 
         </div>
     );
 }
 
-export default listing;
+export default SpotsPage;

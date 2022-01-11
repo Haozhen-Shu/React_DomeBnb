@@ -20,7 +20,7 @@ module.exports = {
         },
         {
           userId:6,
-          SpotId:4,
+          spotId:4,
           review:'Such a cool spot. They did a great job with this place. It’s so unique. 5 star glamping experience! Super clean and the set up was perfect.'
         },
         {
