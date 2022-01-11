@@ -25,8 +25,7 @@ const removeDome = () => {
     }
 };
 
-export const getDomes = () => async (dispath) => {
-    const dispatch = useDispatch();
+export const getDomes = () => async (dispatch) => {
     const response = await csrfFetch('/api/spots');
     if (response.ok) {
         const list = await response.json();

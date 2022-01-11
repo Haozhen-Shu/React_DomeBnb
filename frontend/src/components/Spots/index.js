@@ -8,8 +8,8 @@ function SpotsPage () {
     const dispatch = useDispatch();
     const {domeId} = useParams();
     const dome = useSelector(state => {
-        console.log("state", state)
-        return state.spots.list.map(domeId => state.spots.list[domeId]);
+        // console.log("state", state)
+        return state.spots.list.map(domeId => state.spots[domeId]);
     })
 
     useEffect(() => {

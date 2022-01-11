@@ -32,4 +32,10 @@ ul li {
 
 }
 
+li a {
+    text-decoration: none;
+}
 
+profile-dropdown{
+    display:flex;
+}

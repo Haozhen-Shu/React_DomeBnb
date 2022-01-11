@@ -1,14 +1,19 @@
-const Spot = require('../../db/models/spot');
+const models = require('../../db/models');
+const Spot = models.Spots;
 const express = require('express');
 const asyncHandler = require('express-async-handler');
 
 const router = express.Router();
+console.log("Spot", Spot)
 
 router.get(
     '/',
     asyncHandler(async (req, res) => {
-        const domes = await Spot.findAll();
-        return res.json(domes);
+        console.log("Spot", Spot)
+        if (Spot) {
+            const domes = await Spot.findAll();
+            return res.json(domes);
+        }
     }
 ));
 
