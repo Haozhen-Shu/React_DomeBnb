@@ -35,8 +35,10 @@ function SpotsPage ({hideForm}) {
                  const img = image_list.find(img => img.spotId === dome.id)
                  if (img)
                  return (
-                     <NavLink id="spot_container" key={dome.id} to={`/spots/${dome.id}`}>
-                         <img src={img.url} alt={dome.name} key={img.id} className="spots_dome_img"></img>
+                     <NavLink id="spot_nav" key={dome.id} to={`/spots/${dome.id}`}>
+                         <div className="spot_container">
+                            <img src={img.url} alt={dome.name} key={img.id} className="spots_dome_img"></img>
+                         </div>
                          <div key={dome.name} className="spots_dome_name">{dome.name}</div>
                          <div key={dome.price} className="spots_dom_price">{dome.price}</div>
                          <div key={dome.address} className="spots_dom_address">{dome.address}</div>

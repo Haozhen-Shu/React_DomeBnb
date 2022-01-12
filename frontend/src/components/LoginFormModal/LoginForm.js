@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
-import styles from './LoginForm.css';
 
 function LoginForm() {
     const dispatch = useDispatch();
@@ -21,18 +20,18 @@ function LoginForm() {
     };
 
     return (
-        <form onSubmit={handleSubmit} id={styles.login_form}>
+        <form onSubmit={handleSubmit} id="login_form">
 
-            <div id={styles.login_header_div}>
-                <h2 id={styles.login_header}>Welcome Back!</h2>
+            <div id="login_header_div">
+                <h2 id="login_header">Welcome Back!</h2>
             </div>
-            <ul className={styles.login_errors}>
+            <ul className="login_errors">
                 {errors.map((error, idx) => (
-                    <li id={styles.errors} key={idx}>{error}</li>
+                    <li id="errors" key={idx}>{error}</li>
                 ))}
             </ul>
-            <div id={styles.login_input_container}>
-                <div className={styles.login_input_div}>
+            <div id="login_input_container">
+                <div className="login_input_div">
                     <label>
                         Username or Email
                     </label>
@@ -44,7 +43,7 @@ function LoginForm() {
                     />
                 </div>
             
-                <div className={styles.login_input_div}>
+                <div className="login_input_div">
                     <label>
                         Password
                     </label>
@@ -56,8 +55,8 @@ function LoginForm() {
                         />
                 </div>
             </div>
-            <div id={styles.login_btn_div}>
-                <button type="submit">Log In</button>
+            <div id="login_btn_div">
+                <button className="login_btn" type="submit">Log In</button>
             </div>
         </form>
     );

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
-import styles from './SignupForm.css';
 
 function SignupFormPage() {
     const dispatch = useDispatch();
@@ -29,18 +28,18 @@ function SignupFormPage() {
     };
 
     return (
-        <form onSubmit={handleSubmit} id={styles.signup_form}>
-            <div id={styles.singup_content_wrapper}>
-                <div id={styles.signup_header_div}>
-                    <h2 id={styles.signup_header}>Create an Account</h2>
+        <form onSubmit={handleSubmit} id="signup_form">
+            <div id="singup_content_wrapper">
+                <div id="signup_header_div">
+                    <h2 id="signup_header">Create an Account</h2>
                 </div>
 
-                <ul id={styles.signup_errors}>
-                    {errors.map((error, idx) => <li className={styles.errors} key={idx}>{error}</li>)}
+                <ul id="signup_errors">
+                    {errors.map((error, idx) => <li className="errors" key={idx}>{error}</li>)}
                 </ul>
 
-                <div id={styles.signup_input_container}>
-                    <div id={styles.signup_input_div}>
+                <div id="signup_input_container">
+                    <div id="signup_input_div">
                         <label>
                             Email
                         </label>
@@ -52,7 +51,7 @@ function SignupFormPage() {
                         />
                     </div>
 
-                    <div id={styles.signup_input_div}>
+                    <div id="signup_input_div">
                         <label>
                             Username
                         </label>
@@ -64,7 +63,7 @@ function SignupFormPage() {
                         />
                     </div>
 
-                    <div id={styles.signup_input_div}>
+                    <div id="signup_input_div">
                             <label>
                                 Password
                             </label>
@@ -76,7 +75,7 @@ function SignupFormPage() {
                             />
                     </div>
 
-                    <div id={styles.signup_input_div}>
+                    <div id="signup_input_div">
                             <label>
                                 Confirm Password
                             </label>
@@ -88,7 +87,7 @@ function SignupFormPage() {
                             />
                     </div>  
                 </div>
-                <div id={styles.signup_btn}> 
+                <div id="signup_btn"> 
                     <button type="submit">Sign Up</button>
                 </div>
             </div>

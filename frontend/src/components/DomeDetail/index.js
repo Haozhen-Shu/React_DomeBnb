@@ -8,6 +8,7 @@ const DomeDetail = () => {
     
     const {id} = useParams();
     const domes = useSelector(state=>state.spots)
+    console.log("domes", domes)
     const [showEditDome, setShowEditDome] = useState(false);
     const dispatch = useDispatch();
     
@@ -37,6 +38,7 @@ const DomeDetail = () => {
 
     const dome_item = dome_list.find(dome => dome.id = id);
     const image_item = image_list.find(img => img.spotId == id);
+    
 
     
     const handleRemoveItem = e => {
