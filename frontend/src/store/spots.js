@@ -99,6 +99,7 @@ const spotsReducer = (state=initialState, action) => {
             return {
                 allDomes,
                 allImages,
+
                 list:action.list
             };
         case ADD_DOME:

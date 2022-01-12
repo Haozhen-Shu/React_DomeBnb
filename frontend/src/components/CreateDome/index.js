@@ -6,7 +6,8 @@ import { useHistory } from 'react-router-dom';
 const CreateDome = ({hideForm}) => {
     const dispatch = useDispatch();
     const history = useHistory();
-
+    
+    const [url,setUrl] =useState('')
     const [userId, setUserId] = useState(0);
     const [address, setAddress] = useState('');
     const [city, setCity] = useState('');
@@ -15,6 +16,7 @@ const CreateDome = ({hideForm}) => {
     const [name, setName] = useState('')
     const [price, setPrice] =useState(0)
 
+    const updateUrl = e => setUrl(e.target.value)
     const updateUserId = e => setUserId(e.target.value);
     const updateAddress = e => setAddress(e.target.value);
     const updateCity = e => setCity(e.target.value);
@@ -27,6 +29,7 @@ const CreateDome = ({hideForm}) => {
         e.preventDefault();
 
         const payload = {
+            url,
             userId,
             address,
             city,
@@ -51,6 +54,13 @@ const CreateDome = ({hideForm}) => {
     return (
         <section className="create_form_container center middled">
             <form onSubmit={handleSubmit}>
+                <input
+                type="text"
+                placeholder="URL"
+                required
+                value={url}
+                onChange={updateUrl}
+                />
                 <input
                 type="number"
                 placeholder="UserId"
@@ -100,7 +110,7 @@ const CreateDome = ({hideForm}) => {
                     value={price}
                     onChange={updatePrice}
                 />
-                <button type='submit'>Create new Pokemon</button>
+                <button type='submit'>Create new Dome</button>
                 <button type='button' onClick={handleCancelClick}>
                     Cancel
                 </button>
