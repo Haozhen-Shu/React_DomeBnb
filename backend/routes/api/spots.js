@@ -2,6 +2,7 @@ const { Spot, Image } = require('../../db/models');
 const express = require('express');
 const asyncHandler = require('express-async-handler');
 const spotValidations = require('../../validation/spot');
+const { db } = require('../../config');
 
 const router = express.Router();
 
@@ -21,8 +22,9 @@ router.get(
     asyncHandler(async (req, res) => {
         const id = req.params.id
         if (Spot && Image) {
-            const dome = await Spot.findByPK(id);
-            return res.json(dome);
+            const dome = await Spot.findByPk(id);
+            const image = await Image.findByPk(IDBCursor)
+            return res.json([dome,image]);
         }
     })
 )
@@ -48,11 +50,13 @@ router.post(
 
 
 router.put(
-    ':/id',
+    '/:id',
     spotValidations.validateUpdate,
     asyncHandler(async function(req,res) {
+        const id = req.params.id;
+        const dome = await Spot.findByPK(id)
         const { userId, address, city, state, country, name, price } = req.body;
-        const dome = await Spot.create({
+        await dome.update({
             userId,
             address,
             city,
@@ -62,6 +66,18 @@ router.put(
             price
         });
         return res.redirect(`${req.baseUrl}/${id}`);
+    })
+)
+
+router.delete(
+    '/:id',
+    asyncHandler(async function(req, res) {
+        const id = req.params.id
+        if (Spot && Image) {
+            const dome = await Spot.findByPK(id);
+            dome.destroy();
+            return res.json({message:'Successfully Deleted'});
+        }
     })
 )
 

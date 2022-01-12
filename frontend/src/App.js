@@ -6,6 +6,7 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import Splash from './components/SplashPage';
 import Spots from './components/Spots';
+import DomeDetail from './components/DomeDetail';
 import Footer from './components/Footer';
 
 function App() {
@@ -25,6 +26,9 @@ function App() {
           </Route>
           <Route path='/spots'>
             <Spots />
+          </Route>
+          <Route path='/spots/:id'>
+            <DomeDetail />
           </Route>
           <Route path='/' exact>
             <Splash />

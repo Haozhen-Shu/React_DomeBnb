@@ -12,11 +12,11 @@ function SpotsPage () {
     let image_list;
 
     if (domes.allDomes) {
-        dome_list = Object.entries(domes.allDomes);
+        dome_list = Object.values(domes.allDomes);
     }
 
     if (domes.allImages) {
-       image_list = Object.entries(domes.allImages)
+       image_list = Object.values(domes.allImages)
     }
 
     useEffect(() => {
