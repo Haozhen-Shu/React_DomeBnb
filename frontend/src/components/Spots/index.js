@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { NavLink} from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
-import styles from './Spots.css';
+// import styles from './Spots.css';
 import {getDomes} from '../../store/spots';
 import CreateDome from '../CreateDome';
 
@@ -30,20 +30,20 @@ function SpotsPage ({hideForm}) {
     }
 
      let sub_content = (
-         <div id={styles.listing_container}>
+         <section id="listing_container">
              {dome_list.map(dome => {
                  const img = image_list.find(img => img.spotId === dome.id)
                  if (img)
                  return (
-                     <NavLink id={styles.spot_container} key={dome.id} to={`/spots/${dome.id}`}>
-                         <img src={img.url} alt={dome.name} key={img.id} className={styles.spots_dome_img}></img>
-                         <div key={dome.name} className={styles.spots_dome_name}>{dome.name}</div>
-                         <div key={dome.price} className={styles.spots_dom_price}>{dome.price}</div>
-                         <div key={dome.address} className={styles.spots_dom_address}>{dome.address}</div>
+                     <NavLink id="spot_container" key={dome.id} to={`/spots/${dome.id}`}>
+                         <img src={img.url} alt={dome.name} key={img.id} className="spots_dome_img"></img>
+                         <div key={dome.name} className="spots_dome_name">{dome.name}</div>
+                         <div key={dome.price} className="spots_dom_price">{dome.price}</div>
+                         <div key={dome.address} className="spots_dom_address">{dome.address}</div>
                      </NavLink>
                  )
              })}
-         </div>
+         </section>
      )
 
      let content = null;
@@ -56,9 +56,9 @@ function SpotsPage ({hideForm}) {
      } else {
          content =(
              <div>
-             <div id={styles.listing_header}>
+             <div id="listing_header">
                  <p>Domes</p>
-                 <div id={styles.listing_filters}>
+                 <div id="listing_filters">
                      <button onClick={() => setShowCreateDome(true)}>Add</button>
                      {/* <button id={styles.filter_btn}>Anytime</button>
                     <button id={styles.filter_btn}>Guests</button>

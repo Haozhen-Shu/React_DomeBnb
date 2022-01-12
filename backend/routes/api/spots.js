@@ -33,9 +33,8 @@ router.post(
     '/',
     spotValidations.validateCreate,
     asyncHandler(async(req, res, next) => {
-        const {url,userId,address,city,state,country,name,price} = req.body;
+        const {spotId,url,userId,address,city,state,country,name,price} = req.body;
         const dome = await Spot.create({
-            url,
             userId,
             address,
             city,
@@ -44,7 +43,12 @@ router.post(
             name,
             price
         });
-        return res.json(dome);
+        const image = await Image.create({
+            spotId,
+            url
+        });
+        if (dome && image)
+        return res.json([dome,image]);
 
     })
 );

@@ -7,6 +7,7 @@ const CreateDome = ({hideForm}) => {
     const dispatch = useDispatch();
     const history = useHistory();
     
+    // const [spotId, setSpotId] = useState(id)
     const [url,setUrl] =useState('')
     const [userId, setUserId] = useState(0);
     const [address, setAddress] = useState('');
@@ -15,7 +16,8 @@ const CreateDome = ({hideForm}) => {
     const [country, setCountry] = useState('');
     const [name, setName] = useState('')
     const [price, setPrice] =useState(0)
-
+    
+    // const updateSpotId = e => setSpotId(e.target.value)
     const updateUrl = e => setUrl(e.target.value)
     const updateUserId = e => setUserId(e.target.value);
     const updateAddress = e => setAddress(e.target.value);
@@ -29,6 +31,7 @@ const CreateDome = ({hideForm}) => {
         e.preventDefault();
 
         const payload = {
+            // spotId,
             url,
             userId,
             address,
@@ -54,6 +57,13 @@ const CreateDome = ({hideForm}) => {
     return (
         <section className="create_form_container center middled">
             <form onSubmit={handleSubmit}>
+                {/* <input
+                type="userId"
+                placeholder="SpotId"
+                required
+                value={id}
+                onChange={updateSpotId}
+                /> */}
                 <input
                 type="text"
                 placeholder="URL"
