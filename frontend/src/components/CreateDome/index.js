@@ -2,14 +2,21 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {createDome} from '../../store/spots';
 import { useHistory } from 'react-router-dom';
+import * as sessionActions from '../../store/session';
 
 const CreateDome = ({hideForm}) => {
     const dispatch = useDispatch();
     const history = useHistory();
+    const sessionUser = useSelector(state => state.session.user)
+    console.log(sessionUser)
+
+    useEffect(() => {
+        dispatch(sessionActions.restoreUser())
+    }, [dispatch]);
     
     // const [spotId, setSpotId] = useState(id)
     const [url,setUrl] =useState('')
-    const [userId, setUserId] = useState(0);
+    const [userId, setUserId] = useState(sessionUser?.id);
     const [address, setAddress] = useState('');
     const [city, setCity] = useState('');
     const [state, setState] = useState('');
@@ -71,13 +78,7 @@ const CreateDome = ({hideForm}) => {
                 value={url}
                 onChange={updateUrl}
                 />
-                <input
-                type="number"
-                placeholder="UserId"
-                required
-                value={userId}
-                onChange={updateUserId}
-                />
+                
                 <input
                     type="text"
                     placeholder="Address"

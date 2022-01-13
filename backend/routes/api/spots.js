@@ -28,7 +28,7 @@ router.get(
                     spotId:id
                 }
             })
-            return res.json([dome,image]);
+            return res.json([dome,image[0]]);
         }
     })
 )
@@ -81,19 +81,21 @@ router.delete(
     '/:id',
     asyncHandler(async function(req, res) {
         const id = req.params.id
-        if (Spot && Image) {
-            const img = await Image.findAll({
-                where:{
-                    spotId:id
-                }
-            })
-            const dome = await Spot.findByPk(id);
-            if (img && dome) {
-                img.destroy();
-                dome.destroy();
+        
+        const img = await Image.findAll({
+            where:{
+                spotId:id
             }
-            return res.json([dome.id, img.id]);
+        })
+        if (img) {
+            await img[0].destroy();
         }
+        const dome = await Spot.findByPk(id);
+        if (dome) {
+            dome.destroy();
+        }
+        return res.json([dome, img]);
+        
     })
 )
 

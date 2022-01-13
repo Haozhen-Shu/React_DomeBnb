@@ -193,3 +193,44 @@
     
 }
 
+.detail_head{
+    text-align: center;
+}
+
+.img_and_info{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.detail_image{
+    width:400px;
+    height:400px
+}
+
+.info_and_btn{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 400px;
+};
+
+.edit_btn_container{
+    width:200px;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.edit_form{
+    height: 500px;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.edit_input{
+    width:300px;
+    height:30px;
+}
