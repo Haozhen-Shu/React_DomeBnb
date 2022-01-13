@@ -47,8 +47,8 @@ const EditDome = ({dome, hideForm}) => {
     }
 
     return (
-        <section className='edit_form_containter'>
-            <form onSubmit={handleSubmit}>
+        <section className='edit_form_container'>
+            <form className="edit_form" onSubmit={handleSubmit}>
                 {/* <input
                     type='number'
                     placeholder='userId'
@@ -62,6 +62,7 @@ const EditDome = ({dome, hideForm}) => {
                     required
                     value={address}
                     onChange={updateAddress}
+                    className="edit_input"
                 />
                 <input
                     type="text"
@@ -69,6 +70,7 @@ const EditDome = ({dome, hideForm}) => {
                     required
                     value={city}
                     onChange={updateCity}
+                    className="edit_input"
                 />
                 <input
                     type="text"
@@ -76,6 +78,7 @@ const EditDome = ({dome, hideForm}) => {
                     required
                     value={state}
                     onChange={updateState}
+                    className="edit_input"
                 />
                 <input
                     type="text"
@@ -83,6 +86,7 @@ const EditDome = ({dome, hideForm}) => {
                     required
                     value={country}
                     onChange={updateCountry}
+                    className="edit_input"
                 />
                 <input
                     type="text"
@@ -90,6 +94,7 @@ const EditDome = ({dome, hideForm}) => {
                     required
                     value={name}
                     onChange={updateName}
+                    className="edit_input"
                 />
                 <input
                     type="number"
@@ -97,9 +102,10 @@ const EditDome = ({dome, hideForm}) => {
                     required
                     value={price}
                     onChange={updatePrice}
+                    className="edit_input"
                 />
-                <button type='submit'>Update A Dome</button>
-                <button type='button' onClick={handleCancelClick}>
+                <button className="edit_btn" type='submit'>Update A Dome</button>
+                <button className="cancel_btn" type='button' onClick={handleCancelClick}>
                     Cancel
                 </button>
 

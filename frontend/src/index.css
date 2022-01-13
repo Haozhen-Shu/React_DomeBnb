@@ -183,3 +183,13 @@
     flex-direction: column;
 
 }
+
+.edit_form_container{
+    height: 700px;
+    display:flex;
+    flex-direction:column;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+

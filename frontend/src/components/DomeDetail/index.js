@@ -8,8 +8,10 @@ const DomeDetail = () => {
     
     const {id} = useParams();
     const dome = useSelector(state=>state.spots.allDomes[id]);
-    const img = useSelector(state=>state.spots.allImages.spotId===id)
-    console.log(dome)
+    const imgs = Object.values(useSelector(state=>state.spots.allImages))
+    const img = imgs.find(img=>img.spotId == id)
+    console.log("dome",dome)
+    console.log("img",img)
 
     const [showEditDome, setShowEditDome] = useState(false);
     const dispatch = useDispatch();
@@ -32,7 +34,7 @@ const DomeDetail = () => {
         <div className='dome_detail_list'>
                 <h2>Information</h2>
                 <div className="detail_image_containter">
-                    <img src={img.url} alt={img.id} className="detail_image" ></img>
+                    <img src={img?.url} alt={img?.id} className="detail_image" ></img>
                 </div>
                 <div>
             <div className="edit_btn_container">
@@ -42,25 +44,25 @@ const DomeDetail = () => {
             <ul className="detail_info_container">
              
                 <li>
-                    <b>userId</b> {dome.userId}
+                    <b>userId</b> {dome?.userId}
                 </li>
                 <li>
-                    <b>Address</b> {dome.address}
+                    <b>Address</b> {dome?.address}
                 </li>
                 <li>
-                    <b>City</b> {dome.city}
+                    <b>City</b> {dome?.city}
                 </li>
                 <li>
-                    <b>State</b> {dome.state}
+                    <b>State</b> {dome?.state}
                 </li>
                 <li>
-                    <b>Country</b> {dome.country}
+                    <b>Country</b> {dome?.country}
                 </li>
                 <li>
-                    <b>Name</b> {dome.name}
+                    <b>Name</b> {dome?.name}
                 </li>
                 <li>
-                    <b>Price</b> {dome.price}
+                    <b>Price</b> {dome?.price}
                 </li>
             </ul>
         </div>
