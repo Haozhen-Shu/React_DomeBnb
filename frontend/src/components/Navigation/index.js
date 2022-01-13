@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
-import styles from './Navigation.css';
 
 function Navigation({ isLoaded }) {
     const sessionUser = useSelector(state => state.session.user);
@@ -17,19 +16,19 @@ function Navigation({ isLoaded }) {
         sessionLinks = (
             <>
                 <LoginFormModal />
-                <NavLink to="/signup">Sign Up</NavLink>
+                <NavLink to="/signup" className="signup_link">Sign Up</NavLink>
             </>
         );
     }
 
     return (
-        <nav id={styles.nav}> 
-            <div id={styles.logo_div}>         
-                <img src='https://static.thenounproject.com/png/11999-200.png' alt='logo' className={styles.logo} ></img>
+        <nav id="nav">
+            <div className="logo_container">        
+                <img className="logo" src='https://static.thenounproject.com/png/11999-200.png' alt='logo' ></img>
             </div>
             <ul>
-                <li>
-                    <NavLink exact to="/" className={styles.navlink} >Home</NavLink>
+                <li className="nav_btn_container">
+                    <NavLink exact to="/" className="nav_link" >Home</NavLink>
                     {isLoaded && sessionLinks}
                 </li>
             </ul>

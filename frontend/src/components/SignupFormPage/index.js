@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
-import styles from './SignupForm.css';
 
 function SignupFormPage() {
     const dispatch = useDispatch();
@@ -29,67 +28,64 @@ function SignupFormPage() {
     };
 
     return (
-        <form onSubmit={handleSubmit} id={styles.signup_form}>
-            <div id={styles.singup_content_wrapper}>
-                <div id={styles.signup_header_div}>
-                    <h2 id={styles.signup_header}>Create an Account</h2>
+        <form onSubmit={handleSubmit} id="signup_form">
+            <div id="singup_content_wrapper">
+                <div id="signup_header_div">
+                    <h2 id="signup_header">Create an Account</h2>
                 </div>
 
-                <ul id={styles.signup_errors}>
-                    {errors.map((error, idx) => <li className={styles.errors} key={idx}>{error}</li>)}
+                <ul id="signup_errors">
+                    {errors.map((error, idx) => <li className="errors" key={idx}>{error}</li>)}
                 </ul>
 
-                <div id={styles.signup_input_container}>
-                    <div id={styles.signup_input_div}>
-                        <label>
-                            Email
-                        </label>
+                <div id="signup_input_container">
+                    <div id="signup_input_div">
                         <input
                             type="text"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             required
+                            placeholder="Email"
+                            className="input_div"
                         />
                     </div>
 
-                    <div id={styles.signup_input_div}>
-                        <label>
-                            Username
-                        </label>
+                    <div id="signup_input_div">
                         <input
                             type="text"
+                            className="input_div"
                             value={username}
                             onChange={(e) => setUsername(e.target.value)}
                             required
+                            placeholder="Username"
                         />
                     </div>
 
-                    <div id={styles.signup_input_div}>
-                            <label>
-                                Password
-                            </label>
+                    <div id="signup_input_div">
                             <input
                                 type="password"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                                 required
+                                placeholder="Password"
+                                className="input_div"
                             />
                     </div>
 
-                    <div id={styles.signup_input_div}>
-                            <label>
-                                Confirm Password
-                            </label>
+                    <div id="signup_input_div">
+                            
                             <input
                                 type="password"
                                 value={confirmPassword}
                                 onChange={(e) => setConfirmPassword(e.target.value)}
                                 required
+                                placeholder="Confirm Password"
+                                className="input_div"
                             />
                     </div>  
                 </div>
-                <div id={styles.signup_btn}> 
-                    <button type="submit">Sign Up</button>
+                <div id="signup_btn_div"> 
+                    <button className="signup_form_btn" type="submit">Sign Up</button>
                 </div>
             </div>
         </form>

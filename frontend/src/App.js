@@ -4,8 +4,9 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
-import Splash from './components/Splash';
-import Listing from './components/Listing';
+import Splash from './components/SplashPage';
+import Spots from './components/Spots';
+import DomeDetail from './components/DomeDetail';
 import Footer from './components/Footer';
 
 function App() {
@@ -23,8 +24,11 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
-          <Route path='/listing'>
-            {/* <Listing /> */}
+          <Route path='/spots/:id'>
+            <DomeDetail />
+          </Route>
+          <Route path='/spots'>
+            <Spots />
           </Route>
           <Route path='/' exact>
             <Splash />
