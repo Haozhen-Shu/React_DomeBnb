@@ -7,86 +7,71 @@ import EditDome from '../EditDome';
 const DomeDetail = () => {
     
     const {id} = useParams();
-    const domes = useSelector(state=>state.spots)
-    console.log("domes", domes)
+    const dome = useSelector(state=>state.spots.allDomes[id]);
+    const img = useSelector(state=>state.spots.allImages.spotId===id)
+    console.log(dome)
+
     const [showEditDome, setShowEditDome] = useState(false);
     const dispatch = useDispatch();
     
-    let dome_list;
-    let image_list;
-    
-    if (domes.allDomes) {
-        dome_list = Object.values(domes.allDomes);
-    }
-    
-    if (domes.allImages) {
-        image_list = Object.values(domes.allImages)
-    }
-
-    const [list, updateList] = useState(dome_list);
-    const [img, updateImg] = useState(image_list);
-    
     useEffect(() => {
         setShowEditDome(false);
-        dispatch(getDomes(domes))
-        dispatch(deleteDome)
-    }, [dispatch]);
+        dispatch(getOneDome(id));
+    }, [dispatch, id]);
+  
+    // const handleRemoveItem = e => {
+    //     Object.values(dome_list).filter(item => item.id !== id)
+    //     Object.values(image_list).filter(item => item.spotId !== id)
+    //    updateList(list.filter(item => item.id !== id));
+    //    updateImg(img.filter(item => item.spotId !== id))
+    // }
 
-    if (!domes.allDomes || !domes.allImages) {
-        return null;
-    }
-
-    const dome_item = dome_list.find(dome => dome.id = id);
-    const image_item = image_list.find(img => img.spotId == id);
-    
-    if (!dome_item || !image_item) return null;
-
-    
-    const handleRemoveItem = e => {
-       updateList(list.filter(item => item.id !== id));
-       updateImg(img.filter(item => item.spotId !== id))
-    }
     
     let content = null;
     let sub_content = (
         <div className='dome_detail_list'>
-            <h2>Information</h2>
-            <button onClick={() => setShowEditDome(true)}>Edit</button>
-            <button onClick={handleRemoveItem}>Delete</button>
-            <ul>
+                <h2>Information</h2>
+                <div className="detail_image_containter">
+                    <img src={img.url} alt={img.id} className="detail_image" ></img>
+                </div>
+                <div>
+            <div className="edit_btn_container">
+                <button className="edit_btn" onClick={() => setShowEditDome(true)}>Edit</button>
+                {/* <button className="delete_btn" onClick={handleRemoveItem}>Delete</button> */}
+               </div>
+            <ul className="detail_info_container">
+             
                 <li>
-                    <img src={image_item.url} alt={image_item.id} ></img>
+                    <b>userId</b> {dome.userId}
                 </li>
                 <li>
-                    <b>userId</b> {dome_item.userId}
+                    <b>Address</b> {dome.address}
                 </li>
                 <li>
-                    <b>Address</b> {dome_item.address}
+                    <b>City</b> {dome.city}
                 </li>
                 <li>
-                    <b>City</b> {dome_item.city}
+                    <b>State</b> {dome.state}
                 </li>
                 <li>
-                    <b>State</b> {dome_item.state}
+                    <b>Country</b> {dome.country}
                 </li>
                 <li>
-                    <b>Country</b> {dome_item.country}
+                    <b>Name</b> {dome.name}
                 </li>
                 <li>
-                    <b>Name</b> {dome_item.name}
-                </li>
-                <li>
-                    <b>Price</b> {dome_item.price}
+                    <b>Price</b> {dome.price}
                 </li>
             </ul>
         </div>
+       </div>
     );
 
 
     if (showEditDome) {
         content = (
             <EditDome
-            dome={dome_item}
+            dome={dome}
             hideForm={()=>setShowEditDome(false)}
             />
         )
@@ -97,7 +82,7 @@ const DomeDetail = () => {
     return (
         <div className='dome_detail'>
             {content}
-        </div>
+         </div>
     )
 
 }

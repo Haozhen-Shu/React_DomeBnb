@@ -16,7 +16,7 @@ function Navigation({ isLoaded }) {
         sessionLinks = (
             <>
                 <LoginFormModal />
-                <NavLink to="/signup">Sign Up</NavLink>
+                <NavLink to="/signup" className="signup_link">Sign Up</NavLink>
             </>
         );
     }
@@ -24,11 +24,11 @@ function Navigation({ isLoaded }) {
     return (
         <nav id="nav">
             <div className="logo_container">        
-            <img src='https://static.thenounproject.com/png/11999-200.png' alt='logo' className="logo" ></img>
+                <img className="logo" src='https://static.thenounproject.com/png/11999-200.png' alt='logo' ></img>
             </div>
             <ul>
-                <li>
-                    <NavLink exact to="/" className="navlink" >Home</NavLink>
+                <li className="nav_btn_container">
+                    <NavLink exact to="/" className="nav_link" >Home</NavLink>
                     {isLoaded && sessionLinks}
                 </li>
             </ul>

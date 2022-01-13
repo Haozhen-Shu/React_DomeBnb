@@ -23,7 +23,11 @@ router.get(
         const id = req.params.id
         if (Spot && Image) {
             const dome = await Spot.findByPk(id);
-            const image = await Image.findByPk(id)
+            const image = await Image.findAll({
+                where:{
+                    spotId:id
+                }
+            })
             return res.json([dome,image]);
         }
     })
@@ -47,8 +51,6 @@ router.post(
             spotId:dome.id,
             url
         });
-        console.log("dom",dome)
-        console.log("img",image)
         if (dome && image)
         return res.json([dome,image]);
 
@@ -62,9 +64,8 @@ router.put(
     asyncHandler(async function(req,res) {
         const id = req.params.id;
         const dome = await Spot.findByPk(id)
-        const { userId, address, city, state, country, name, price } = req.body;
+        const { address, city, state, country, name, price } = req.body;
         await dome.update({
-            userId,
             address,
             city,
             state,
@@ -81,10 +82,17 @@ router.delete(
     asyncHandler(async function(req, res) {
         const id = req.params.id
         if (Spot && Image) {
+            const img = await Image.findAll({
+                where:{
+                    spotId:id
+                }
+            })
             const dome = await Spot.findByPk(id);
-            const image = await Image.findByPk()
-            dome.destroy();
-            return res.json({message:'Successfully Deleted'});
+            if (img && dome) {
+                img.destroy();
+                dome.destroy();
+            }
+            return res.json([dome.id, img.id]);
         }
     })
 )

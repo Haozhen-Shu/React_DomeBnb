@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { NavLink} from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
-// import styles from './Spots.css';
 import {getDomes} from '../../store/spots';
 import CreateDome from '../CreateDome';
 
@@ -29,8 +28,7 @@ function SpotsPage ({hideForm}) {
         return null;
     }
 
-    console.log("domes",dome_list);
-    console.log("imgs",image_list)
+
 
      let sub_content = (
          <section id="listing_container">
@@ -42,9 +40,11 @@ function SpotsPage ({hideForm}) {
                          <div className="spot_container">
                             <img src={img.url} alt={dome.name} key={img.id} className="spots_dome_img"></img>
                          </div>
-                         <div key={dome.name} className="spots_dome_name">{dome.name}</div>
-                         <div key={dome.price} className="spots_dom_price">{dome.price}</div>
-                         <div key={dome.address} className="spots_dom_address">{dome.address}</div>
+                         <div className="info_container">
+                            <div key={dome.name} className="spots_dome_name">{dome.name}</div>
+                            <div key={dome.price} className="spots_dom_price">${dome.price}/night</div>
+                            {/* <div key={dome.address} className="spots_dom_address">{dome.address}</div> */}
+                        </div>
                      </NavLink>
                  )
              })}
@@ -64,7 +64,7 @@ function SpotsPage ({hideForm}) {
              <div id="listing_header">
                  <p>Domes</p>
                  <div id="listing_filters">
-                     <button onClick={() => setShowCreateDome(true)}>Add</button>
+                     <button className="add_btn" onClick={() => setShowCreateDome(true)}>Add a new dome</button>
                      {/* <button id={styles.filter_btn}>Anytime</button>
                     <button id={styles.filter_btn}>Guests</button>
                     <button id={styles.filter_btn}>Filters</button> */}

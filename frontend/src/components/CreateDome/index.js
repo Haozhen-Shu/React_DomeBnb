@@ -55,8 +55,8 @@ const CreateDome = ({hideForm}) => {
     };
 
     return (
-        <section className="create_form_container center middled">
-            <form onSubmit={handleSubmit}>
+        <section className="create_form_container">
+            <form onSubmit={handleSubmit} className="create_form_div">
                 {/* <input
                 type="userId"
                 placeholder="SpotId"

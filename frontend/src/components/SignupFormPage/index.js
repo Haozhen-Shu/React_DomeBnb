@@ -40,55 +40,52 @@ function SignupFormPage() {
 
                 <div id="signup_input_container">
                     <div id="signup_input_div">
-                        <label>
-                            Email
-                        </label>
                         <input
                             type="text"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             required
+                            placeholder="Email"
+                            className="input_div"
                         />
                     </div>
 
                     <div id="signup_input_div">
-                        <label>
-                            Username
-                        </label>
                         <input
                             type="text"
+                            className="input_div"
                             value={username}
                             onChange={(e) => setUsername(e.target.value)}
                             required
+                            placeholder="Username"
                         />
                     </div>
 
                     <div id="signup_input_div">
-                            <label>
-                                Password
-                            </label>
                             <input
                                 type="password"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                                 required
+                                placeholder="Password"
+                                className="input_div"
                             />
                     </div>
 
                     <div id="signup_input_div">
-                            <label>
-                                Confirm Password
-                            </label>
+                            
                             <input
                                 type="password"
                                 value={confirmPassword}
                                 onChange={(e) => setConfirmPassword(e.target.value)}
                                 required
+                                placeholder="Confirm Password"
+                                className="input_div"
                             />
                     </div>  
                 </div>
-                <div id="signup_btn"> 
-                    <button type="submit">Sign Up</button>
+                <div id="signup_btn_div"> 
+                    <button className="signup_form_btn" type="submit">Sign Up</button>
                 </div>
             </div>
         </form>

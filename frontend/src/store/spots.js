@@ -1,4 +1,5 @@
 import { csrfFetch } from './csrf';
+import {useParams} from 'react-router-dom';
 
 const ADD_DOME ='spots/addDome';
 const REMOVE_DOME ='spots/removeDome';
@@ -14,31 +15,44 @@ const getAllDomes = (list) => ({
 const addDome = (dome) =>{
     return {
         type: ADD_DOME,
-        payload: dome,
+         dome,
     }
 };
 
-const removeDome = () => {
+const removeDome = (id) => {
     return {
         type: REMOVE_DOME,
+        id,
     }
 };
 
 export const getOneDome = (id) =>async (dispatch) => {
     const response = await csrfFetch(`/api/spots/${id}`);
+    // console.log(response)
     if (response.ok) {
         const dome = await response.json();
+        // console.log(dome)
         dispatch(addDome(dome));
     }
 }
 
 export const getDomes = () => async (dispatch) => {
     const response = await csrfFetch('/api/spots');
+    // console.log(response)
     if (response.ok) {
+
         const list = await response.json();
+        // console.log(list)
         dispatch(getAllDomes(list));
     }
 }
+// export const getDomes = () => async (dispatch) => {
+//     const response = await csrfFetch('/api/spots');
+//     if (response.ok) {
+//         const list = await response.json();
+//         dispatch(getAllDomes(list));
+//     }
+// }
 
 export const createDome  = (data) => async (dispatch)  =>{
     const response = await csrfFetch('/api/spots', {
@@ -99,7 +113,6 @@ const spotsReducer = (state=initialState, action) => {
             return {
                 allDomes,
                 allImages,
-
                 list:action.list
             };
         case ADD_DOME:
@@ -108,9 +121,10 @@ const spotsReducer = (state=initialState, action) => {
             newState.allImages[action.payload[1].id] = action.payload[1];
             return newState;
         case REMOVE_DOME:
-            newState = Object.assign({}, state);
-            newState.dome = null;
-            return newState;
+            const newState2 = Object.assign({}, state); 
+            newState2.allDomes.filter(dome => dome.id !== action.id)
+            newState2.allImages.filter(img => img.spotId !== action.id)
+            return newState2;
         default:
             return state;
     }
