@@ -39,6 +39,7 @@ const DomeDetail = () => {
     const dome_item = dome_list.find(dome => dome.id = id);
     const image_item = image_list.find(img => img.spotId == id);
     
+    if (!dome_item || !image_item) return null;
 
     
     const handleRemoveItem = e => {

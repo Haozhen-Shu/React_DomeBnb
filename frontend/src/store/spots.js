@@ -14,7 +14,7 @@ const getAllDomes = (list) => ({
 const addDome = (dome) =>{
     return {
         type: ADD_DOME,
-        playload: dome,
+        payload: dome,
     }
 };
 
@@ -104,7 +104,8 @@ const spotsReducer = (state=initialState, action) => {
             };
         case ADD_DOME:
             newState =Object.assign({}, state);
-            newState.dome = action.payload;
+            newState.allDomes[action.payload[0].id] = action.payload[0];
+            newState.allImages[action.payload[1].id] = action.payload[1];
             return newState;
         case REMOVE_DOME:
             newState = Object.assign({}, state);

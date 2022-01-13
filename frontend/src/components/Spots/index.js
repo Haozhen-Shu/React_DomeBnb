@@ -29,6 +29,9 @@ function SpotsPage ({hideForm}) {
         return null;
     }
 
+    console.log("domes",dome_list);
+    console.log("imgs",image_list)
+
      let sub_content = (
          <section id="listing_container">
              {dome_list.map(dome => {

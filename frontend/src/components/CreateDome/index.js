@@ -44,7 +44,7 @@ const CreateDome = ({hideForm}) => {
 
         let createdDome = await dispatch(createDome(payload));
         if (createdDome) {
-            history.push(`/spots/${createdDome.id}`)
+            history.push(`/spots/${createdDome[0].id}`)
             hideForm()
         }
     };
