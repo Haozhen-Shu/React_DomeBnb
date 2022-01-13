@@ -1,13 +1,23 @@
 import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import {Redirect, useHistory} from 'react-router-dom';
 
 function LoginForm() {
     const dispatch = useDispatch();
+    const history = useHistory();
+    const sessionUser = useSelector(state => state.session.user)
     const [credential, setCredential] = useState("");
     const [password, setPassword] = useState("");
     const [errors, setErrors] = useState([]);
 
+
+    if (sessionUser) return (
+        <>{console.log("anything", sessionUser)}
+
+        <Redirect to='/spots' />
+        </>
+    )
     const handleSubmit = (e) => {
         e.preventDefault();
         setErrors([]);
@@ -25,7 +35,13 @@ function LoginForm() {
         return dispatch(sessionActions.login({ credential:'John', password:"password" })).catch(
             async (res) => {
                 const data = await res.json();
-                if (data && data.errors) setErrors(data.errors);
+                if (data && data.errors) {
+                    setErrors(data.errors)
+                    history.push('/spots')
+                } else {
+                    history.push('/spots')
+                }
+
             }
         );
     };
@@ -68,9 +84,9 @@ function LoginForm() {
             </div>
             <div id="login_btn_div">
                 <button className="login_btn" type="submit">Log In</button>
+                <button onClick={handleDemo}>Demo User</button>
             </div>
         </form>
-        <button onClick={handleDemo}>Demo User</button>
         </div>
     );
 }

@@ -1,15 +1,20 @@
 import React from 'react';
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import * as sessionActions from '../../store/session'
 import styles from './Splash.css';
+import {Redirect} from 'react-router-dom';
 
 const Splash = () => {
     const dispatch = useDispatch();
+    const sessionUser = useSelector(state => state.session.user);
 
     React.useEffect(() => {
         dispatch(sessionActions.logout());
     }, [dispatch])
 
+    if (sessionUser) return (
+        <Redirect to='/spots' />
+    )
     return (
         <div className={styles.splash_container}>
             <div className="splash_dom">
