@@ -82,6 +82,7 @@ router.delete(
         const id = req.params.id
         if (Spot && Image) {
             const dome = await Spot.findByPk(id);
+            const image = await Image.findByPk()
             dome.destroy();
             return res.json({message:'Successfully Deleted'});
         }
