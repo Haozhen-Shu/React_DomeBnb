@@ -35,21 +35,18 @@ const removeDome = (id) => {
 
 export const getOneDome = (id) =>async (dispatch) => {
     const response = await csrfFetch(`/api/spots/${id}`);
-    // console.log(response)
+    
     if (response.ok) {
         const dome = await response.json();
-        console.log("juice", dome)
         dispatch(addDome(dome));
     }
 }
 
 export const getDomes = () => async (dispatch) => {
     const response = await csrfFetch('/api/spots');
-    // console.log(response)
     if (response.ok) {
 
         const list = await response.json();
-        // console.log(list)
         dispatch(getAllDomes(list));
     }
 }
@@ -71,7 +68,6 @@ export const createDome  = (data) => async (dispatch)  =>{
     });
         if (response.ok) {
         const dome = await response.json()
-        console.log("pear", dome)
         dispatch(addDome(dome))
         return dome;
     }
@@ -87,7 +83,6 @@ export const updateDome = (data) => async (dispatch) => {
     });
     if (response.ok) {
         const dome = await response.json();
-        console.log("orange",dome)
         dispatch(updatedDome(dome))
         return dome;
     }
@@ -126,7 +121,6 @@ const spotsReducer = (state=initialState, action) => {
             };
         case ADD_DOME:
             newState =Object.assign({}, state);
-            console.log("edit dome",action.dome);
             newState.allDomes[action.dome[0].id] = action.dome[0];
             newState.allImages[action.dome[1].id] = action.dome[1];
             return newState;

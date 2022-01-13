@@ -9,8 +9,7 @@ const DomeDetail = () => {
     const dome = useSelector(state=>state.spots.allDomes[id]);
     const imgs = Object.values(useSelector(state=>state.spots.allImages))
     const img = imgs.find(img=>img.spotId == id)
-    console.log("dome",dome)
-    console.log("img",img)
+    
 
     const [showEditDome, setShowEditDome] = useState(false);
     const dispatch = useDispatch();
@@ -78,7 +77,6 @@ const DomeDetail = () => {
 
 
     if (showEditDome) {
-        console.log("apple", dome)
         content = (
             <EditDome
             dome={dome}

@@ -13,7 +13,7 @@ function LoginForm() {
 
 
     if (sessionUser) return (
-        <>{console.log("anything", sessionUser)}
+        <>{}
 
         <Redirect to='/spots' />
         </>

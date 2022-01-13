@@ -8,7 +8,7 @@ const CreateDome = ({hideForm}) => {
     const dispatch = useDispatch();
     const history = useHistory();
     const sessionUser = useSelector(state => state.session.user)
-    console.log(sessionUser)
+    
 
     useEffect(() => {
         dispatch(sessionActions.restoreUser())
