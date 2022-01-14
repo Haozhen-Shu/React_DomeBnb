@@ -61,6 +61,31 @@
     align-items: center;
 }
 
+#login_input_container{
+    margin-top:0px;
+    padding-top:0px;
+}
+#login_header{
+    margin-bottom: 0px;
+    padding-bottom:0px;
+}
+
+#errors{
+    color:red;
+    list-style-type: none;
+}
+
+
+.login_input{
+    width:200px;
+}
+#login_btn_div{
+    width:200px;
+    display:flex;
+    justify-content: space-around;
+
+}
+
 .login_error{
     margin-top:0px;
     margin-bottom: 0px;
