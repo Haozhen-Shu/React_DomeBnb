@@ -75,8 +75,22 @@
     list-style-type: none;
 }
 
+#listing_header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.info_container, .spot_container{
+    width: 330px;
+}
+
 .github_link{
     text-decoration: none;
+}
+
+.add_btn{
+    position:relative;
+    right: 20px;
 }
 
 
