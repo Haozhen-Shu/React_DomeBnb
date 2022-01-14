@@ -75,6 +75,10 @@
     list-style-type: none;
 }
 
+.github_link{
+    text-decoration: none;
+}
+
 
 .login_input{
     width:200px;
