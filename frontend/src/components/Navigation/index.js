@@ -30,9 +30,9 @@ function Navigation({ isLoaded }) {
                 <li className="nav_btn_container">
                     <NavLink exact to="/spots" className="nav_link" >Home</NavLink>
                     {isLoaded && sessionLinks}
-                    <a href="https://github.com/Haozhen-Shu/React_DomeBnb" className="github_link">
-                        GitHub
-                    </a>
+                <a href='https://github.com/Haozhen-Shu/React_DomeBnb' className="github_link">
+                    GitHub
+                </a>
                 </li>
             </ul>
         </nav>

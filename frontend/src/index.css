@@ -61,13 +61,71 @@
     align-items: center;
 }
 
+#login_input_container{
+    margin-top:0px;
+    padding-top:0px;
+}
+#login_header{
+    margin-bottom: 0px;
+    padding-bottom:0px;
+}
+
 #errors{
     color:red;
-    
-}
-.errors{
-    color:red;
     list-style-type: none;
+}
+
+#listing_header{
+    display: flex;
+    justify-content: space-between;
+}
+
+#signup_errors{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.errors{
+    list-style-type: none;
+    color:red;
+}
+
+.info_container, .spot_container{
+    width: 330px;
+}
+.img_and_info{
+  display:flex;
+  justify-content: space-around;
+
+}
+
+.github_link{
+    text-decoration: none;
+}
+
+.add_btn{
+    position:relative;
+    right: 20px;
+}
+
+
+.login_input{
+    width:200px;
+}
+#login_btn_div{
+    width:200px;
+    display:flex;
+    justify-content: space-around;
+
+}
+
+.login_error{
+    margin-top:0px;
+    margin-bottom: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
 }
 
 #login_header_div{
@@ -219,53 +277,31 @@
     text-align: center;
 }
 
-.edit_btn_container{
-    width: 200px;
-    display:flex;
-    justify-content: space-around;
-}
-
 .detail_info_container{
-    width: 300px;
-    height: 300px;
-    display:flex;
+    height: 350px;
+    display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: flex-start;
-    position:relative;
-    top:30px;
+    margin-top:0px;
 }
 
-.info_container{
-    width:300px;
-    display:block;
-}
-
-
-
-.info_and_btn{
-    display:flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    height:300px;
-}
-
-.img_and_info{
-    display:flex;
-    justify-content: space-around;
-    align-items: center;
-}
 
 .detail_image{
     width:400px;
     height:400px
 }
+.edit_btn_container{
+  width: 200px;
+  display: flex;
+  justify-content: space-around;
+
+}
 
 .info_and_btn{
     display:flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: flex-start;
     width: 400px;
 };

@@ -42,7 +42,7 @@ function SpotsPage ({hideForm}) {
                          </div>
                          <div className="info_container">
                             <span key={dome.name} className="spots_dome_name">{dome.name}</span>
-                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span key={dome.price} className="spots_dom_price">${dome.price}/night</span>
+                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span key={dome.price} className="spots_dom_price">${dome.price}/night</span>
                             {/* <div key={dome.address} className="spots_dom_address">{dome.address}</div> */}
                         </div>
                      </NavLink>
@@ -62,7 +62,7 @@ function SpotsPage ({hideForm}) {
          content =(
              <div>
              <div id="listing_header">
-                 <p>Domes</p>
+                 <p className="dome">Domes</p>
                  <div id="listing_filters">
                      <button className="add_btn" onClick={() => setShowCreateDome(true)}>Add a new dome</button>
                      {/* <button id={styles.filter_btn}>Anytime</button>

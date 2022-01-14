@@ -42,10 +42,6 @@ const DomeDetail = () => {
                     </div>
 
                     <div className="info_and_btn">
-                        <div className="edit_btn_container">
-                            <button className="edit_btn" onClick={() => setShowEditDome(true)}>Edit</button>
-                            <button className="delete_btn" onClick={handleRemoveItem}>Delete</button>
-                        </div>
                         <ul className="detail_info_container">
                         
                             <li>
@@ -70,6 +66,10 @@ const DomeDetail = () => {
                                 <b>Price</b> {dome?.price}
                             </li>
                         </ul>
+                        <div className="edit_btn_container">
+                            <button className="edit_btn" onClick={() => setShowEditDome(true)}>Edit</button>
+                            <button className="delete_btn" onClick={handleRemoveItem}>Delete</button>
+                        </div>
                     </div>
                 </div>
             </div>
