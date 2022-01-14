@@ -68,9 +68,9 @@ function LoginForm() {
             </div>
             <div id="login_btn_div">
                 <button className="login_btn" type="submit">Log In</button>
+                <button onClick={handleDemo}>Demo User</button>
             </div>
         </form>
-        <button onClick={handleDemo}>Demo User</button>
         </div>
     );
 }
