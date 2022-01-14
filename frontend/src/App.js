@@ -7,7 +7,7 @@ import Navigation from "./components/Navigation";
 import Splash from './components/SplashPage';
 import Spots from './components/Spots';
 import DomeDetail from './components/DomeDetail';
-import Footer from './components/Footer';
+// import Footer from './components/Footer';
 
 function App() {
   const dispatch = useDispatch();

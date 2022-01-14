@@ -22,7 +22,7 @@ function SpotsPage ({hideForm}) {
     useEffect(() => {
         dispatch(getDomes(domes))
         setShowCreateDome(false);
-    },[dispatch]);
+    },[dispatch,domes]);
     
     if (!domes.allDomes || !domes.allImages) {
         return null;

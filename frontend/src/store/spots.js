@@ -1,5 +1,4 @@
 import { csrfFetch } from './csrf';
-import {useParams} from 'react-router-dom';
 
 const ADD_DOME ='spots/addDome';
 const REMOVE_DOME ='spots/removeDome';
