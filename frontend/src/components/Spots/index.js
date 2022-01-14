@@ -7,7 +7,7 @@ import CreateDome from '../CreateDome';
 function SpotsPage ({hideForm}) {
     const dispatch = useDispatch();
     const domes = useSelector(state => state.spots);
-    const [showCreateDome, setShowCreateDome] = useState(false);
+    const [showCreateDome, setShowCreateDome] = useState(true);
     let dome_list;
     let image_list;
 
@@ -21,8 +21,8 @@ function SpotsPage ({hideForm}) {
 
     useEffect(() => {
         dispatch(getDomes(domes))
-        setShowCreateDome(false);
-    },[dispatch,domes]);
+        setShowCreateDome(!showCreateDome);
+    },[dispatch]);
     
     if (!domes.allDomes || !domes.allImages) {
         return null;
