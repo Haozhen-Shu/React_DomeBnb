@@ -57,20 +57,22 @@
     height:400px;
     display:flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
 }
 
-.login_error{
-    margin-top:0px;
-    margin-bottom: 0px;
-    padding-top: 0px;
-    padding-bottom: 0px;
+#errors{
+    color:red;
+    
+}
+.errors{
+    color:red;
+    list-style-type: none;
 }
 
 #login_header_div{
-    margin-bottom: 0px;
-    padding-bottom: 0px;
+    position:relative;
+    top:50px;
 }
 
 #login_input_container{
@@ -92,7 +94,17 @@
 
 #listing_header{
     display:flex;
-    justify-content: space-around ;
+    justify-content: space-between ;
+    align-items: center;
+    width: 90%;
+    text-align: center;
+    margin-left: 100px;
+}
+
+.add_btn{
+    position:relative;
+    right:100px;
+
 }
 
 #listing_filters{
@@ -116,7 +128,17 @@
 #listing_container{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;
+    align-items: center;
 
+}
+
+.spots_dome_name, .spots_dom_price{
+    text-decoration: none;
+}
+
+#listing_container button:first-child {
+  /* grid-column-start: 20; */
 }
 
 #spot_nav{
@@ -197,9 +219,41 @@
     text-align: center;
 }
 
+.edit_btn_container{
+    width: 200px;
+    display:flex;
+    justify-content: space-around;
+}
+
+.detail_info_container{
+    width: 300px;
+    height: 300px;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    position:relative;
+    top:30px;
+}
+
+.info_container{
+    width:300px;
+    display:block;
+}
+
+
+
+.info_and_btn{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height:300px;
+}
+
 .img_and_info{
     display:flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
 }
 
@@ -236,5 +290,16 @@
 }
 
 #login_btn_div{
-    
+    width: 300px;
+    display:flex;
+    justify-content: space-around;
+
+}
+
+.github_link{
+    text-decoration: none;
+}
+
+.login_input{
+    width: 300px;
 }

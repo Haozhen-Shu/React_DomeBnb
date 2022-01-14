@@ -41,8 +41,8 @@ function SpotsPage ({hideForm}) {
                             <img src={img.url} alt={dome.name} key={img.id} className="spots_dome_img"></img>
                          </div>
                          <div className="info_container">
-                            <div key={dome.name} className="spots_dome_name">{dome.name}</div>
-                            <div key={dome.price} className="spots_dom_price">${dome.price}/night</div>
+                            <span key={dome.name} className="spots_dome_name">{dome.name}</span>
+                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span key={dome.price} className="spots_dom_price">${dome.price}/night</span>
                             {/* <div key={dome.address} className="spots_dom_address">{dome.address}</div> */}
                         </div>
                      </NavLink>

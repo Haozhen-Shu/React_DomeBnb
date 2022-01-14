@@ -59,26 +59,24 @@ function LoginForm() {
             </ul>
             <div id="login_input_container">
                 <div className="login_input_div">
-                    <label>
-                        Username or Email
-                    </label>
                     <input
                         type="text"
                         value={credential}
                         onChange={(e) => setCredential(e.target.value)}
                         required
+                        placeholder="Username or Email"
+                        className="login_input"
                     />
                 </div>
             
                 <div className="login_input_div">
-                    <label>
-                        Password
-                    </label>
                         <input
                             type="password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             required
+                            placeholder="Password"
+                            className="login_input"
                         />
                 </div>
             </div>

@@ -6,7 +6,6 @@ import {updateDome} from '../../store/spots';
 const EditDome = ({dome, hideForm}) => {
     const dispatch = useDispatch();
 
-    // const [userId, setUserId] = useState(0);
     const [address, setAddress] = useState('');
     const [city, setCity] = useState('');
     const [state, setState] = useState('');
@@ -14,7 +13,6 @@ const EditDome = ({dome, hideForm}) => {
     const [name, setName] = useState('')
     const [price, setPrice] = useState(0)
 
-    // const updateUserId = e => setUserId(e.target.value);
     const updateAddress = e => setAddress(e.target.value);
     const updateCity = e => setCity(e.target.value);
     const updateState = e => setState(e.target.value);
@@ -27,7 +25,6 @@ const EditDome = ({dome, hideForm}) => {
 
         const payload = {
             ...dome,
-            // userId,
             address,
             city,
             state,
@@ -49,16 +46,9 @@ const EditDome = ({dome, hideForm}) => {
     return (
         <section className='edit_form_container'>
             <form className="edit_form" onSubmit={handleSubmit}>
-                {/* <input
-                    type='number'
-                    placeholder='userId'
-                    required
-                    value={userId}
-                    onChange={updateUserId}
-                /> */}
                 <input
                     type="text"
-                    placeholder='Address'
+                    placeholder="Address"
                     required
                     value={address}
                     onChange={updateAddress}
@@ -66,7 +56,7 @@ const EditDome = ({dome, hideForm}) => {
                 />
                 <input
                     type="text"
-                    placeholder='City'
+                    placeholder="City"
                     required
                     value={city}
                     onChange={updateCity}
@@ -74,7 +64,7 @@ const EditDome = ({dome, hideForm}) => {
                 />
                 <input
                     type="text"
-                    placeholder='State'
+                    placeholder="State"
                     required
                     value={state}
                     onChange={updateState}
@@ -82,7 +72,7 @@ const EditDome = ({dome, hideForm}) => {
                 />
                 <input
                     type="text"
-                    placeholder='Country'
+                    placeholder="Country"
                     required
                     value={country}
                     onChange={updateCountry}
@@ -90,7 +80,7 @@ const EditDome = ({dome, hideForm}) => {
                 />
                 <input
                     type="text"
-                    placeholder='Name'
+                    placeholder="Name"
                     required
                     value={name}
                     onChange={updateName}
