@@ -19,9 +19,7 @@ In the frontend folder run npm install
 
 
 
-Database setting up:
-
-Create a user
+Database setting up
 
 In psql, CREATE USER WITH PASSWORD '' CREATEDB
 

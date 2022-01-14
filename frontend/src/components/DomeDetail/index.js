@@ -24,10 +24,6 @@ const DomeDetail = () => {
         e.preventDefault();
         const deleting = await dispatch(deleteDome(id));
         history.push("/spots")
-    //     Object.values(dome_list).filter(item => item.id !== id)
-    //     Object.values(image_list).filter(item => item.spotId !== id)
-    //    updateList(list.filter(item => item.id !== id));
-    //    updateImg(img.filter(item => item.spotId !== id))
     }
 
     
