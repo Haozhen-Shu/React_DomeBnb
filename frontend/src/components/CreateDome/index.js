@@ -1,29 +1,56 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {createDome} from '../../store/spots';
+import { createDome } from '../../store/spots';
 import { useHistory } from 'react-router-dom';
 import * as sessionActions from '../../store/session';
 
-const CreateDome = ({hideForm}) => {
+const CreateDome = ({ hideForm }) => {
     const dispatch = useDispatch();
     const history = useHistory();
     const sessionUser = useSelector(state => state.session.user)
-    
+
 
     useEffect(() => {
         dispatch(sessionActions.restoreUser())
     }, [dispatch]);
-    
+
     // const [spotId, setSpotId] = useState(id)
-    const [url,setUrl] =useState('')
+    const [url, setUrl] = useState('')
     const [userId, setUserId] = useState(sessionUser?.id);
     const [address, setAddress] = useState('');
     const [city, setCity] = useState('');
     const [state, setState] = useState('');
     const [country, setCountry] = useState('');
     const [name, setName] = useState('')
-    const [price, setPrice] =useState(0)
-    
+    const [price, setPrice] = useState(0)
+    const [errors, setErrors] = useState([])
+
+    useEffect(() => {
+        let errs = []
+        if (!url) {
+            errs.push('You need to have a url.')
+        }
+        if (!address) {
+            errs.push('You need to have an address.')
+        }
+        if (!city) {
+            errs.push('City cannot be empty.')
+        }
+        if (!state) {
+            errs.push('State cannot be empty.')
+        }
+        if (!country) {
+            errs.push('Country cannot be empty.')
+        }
+        if (!name) {
+            errs.push('Name cannot be empty and must be unique.')
+        }
+        if (!price) {
+            errs.push('You need to set a price.')
+        }
+        setErrors(errs)
+    }, [url, address, city, state, country, name, price])
+
     // const updateSpotId = e => setSpotId(e.target.value)
     const updateUrl = e => setUrl(e.target.value)
     const updateUserId = e => setUserId(e.target.value);
@@ -72,13 +99,13 @@ const CreateDome = ({hideForm}) => {
                 onChange={updateSpotId}
                 /> */}
                 <input
-                type="text"
-                placeholder="URL"
-                required
-                value={url}
-                onChange={updateUrl}
+                    type="text"
+                    placeholder="URL"
+                    required
+                    value={url}
+                    onChange={updateUrl}
                 />
-                
+
                 <input
                     type="text"
                     placeholder="Address"
@@ -125,9 +152,12 @@ const CreateDome = ({hideForm}) => {
                 <button type='button' onClick={handleCancelClick}>
                     Cancel
                 </button>
+                <ul>
+                    {errors.map((error, i) => <li className="create_errors" key={i}>{error}</li>)}
+                </ul>
             </form>
         </section>
-    )    
+    )
 }
 
 export default CreateDome;
