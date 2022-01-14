@@ -80,8 +80,25 @@
     justify-content: space-between;
 }
 
+#signup_errors{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.errors{
+    list-style-type: none;
+    color:red;
+}
+
 .info_container, .spot_container{
     width: 330px;
+}
+.img_and_info{
+  display:flex;
+  justify-content: space-around;
+
 }
 
 .github_link{
@@ -240,21 +257,31 @@
     text-align: center;
 }
 
-.img_and_info{
-    display:flex;
-    justify-content: space-between;
-    align-items: center;
+.detail_info_container{
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin-top:0px;
 }
+
 
 .detail_image{
     width:400px;
     height:400px
 }
+.edit_btn_container{
+  width: 200px;
+  display: flex;
+  justify-content: space-around;
+
+}
 
 .info_and_btn{
     display:flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: flex-start;
     width: 400px;
 };
