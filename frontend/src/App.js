@@ -8,6 +8,8 @@ import Splash from './components/SplashPage';
 import Spots from './components/Spots';
 import DomeDetail from './components/DomeDetail';
 // import Footer from './components/Footer';
+import ProfileButton from './components/Navigation/ProfileButton';
+import LoginFormModal from './components/LoginFormModal';
 
 function App() {
   const dispatch = useDispatch();
@@ -28,14 +30,16 @@ function App() {
             <DomeDetail />
           </Route>
           <Route path='/spots'>
+            {/* <ProfileButton /> */}
             <Spots />
           </Route>
           <Route path='/' exact>
+            {/* <Navigation /> */}
+            {/* <LoginFormModal /> */}
             <Splash />
           </Route>
         </Switch>
       )}
-      {/* <Footer /> */}
    </BrowserRouter>
   );
 }

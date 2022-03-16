@@ -51,7 +51,7 @@ router.post(
 // to the thunk function logout in 'frontend/src/store/session.js'
 router.delete(
     '/',
-    (_req, res) => {
+    (req, res) => {
         res.clearCookie('token');
         return res.json({ message: 'success' });
     }

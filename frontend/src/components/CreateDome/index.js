@@ -91,19 +91,14 @@ const CreateDome = ({ hideForm }) => {
     return (
         <section className="create_form_container">
             <form onSubmit={handleSubmit} className="create_form_div">
-                {/* <input
-                type="userId"
-                placeholder="SpotId"
-                required
-                value={id}
-                onChange={updateSpotId}
-                /> */}
+                <div className="create_inputs">
                 <input
                     type="text"
                     placeholder="URL"
                     required
                     value={url}
                     onChange={updateUrl}
+                    className="create_input"
                 />
 
                 <input
@@ -112,6 +107,7 @@ const CreateDome = ({ hideForm }) => {
                     required
                     value={address}
                     onChange={updateAddress}
+                    className="create_input"
                 />
                 <input
                     type="text"
@@ -119,6 +115,7 @@ const CreateDome = ({ hideForm }) => {
                     required
                     value={city}
                     onChange={updateCity}
+                    className="create_input"
                 />
                 <input
                     type="text"
@@ -126,6 +123,7 @@ const CreateDome = ({ hideForm }) => {
                     required
                     value={state}
                     onChange={updateState}
+                    className="create_input"
                 />
                 <input
                     type="text"
@@ -133,6 +131,7 @@ const CreateDome = ({ hideForm }) => {
                     required
                     value={country}
                     onChange={updateCountry}
+                    className="create_input"
                 />
                 <input
                     type="text"
@@ -140,6 +139,7 @@ const CreateDome = ({ hideForm }) => {
                     required
                     value={name}
                     onChange={updateName}
+                    className="create_input"
                 />
                 <input
                     type="number"
@@ -147,14 +147,16 @@ const CreateDome = ({ hideForm }) => {
                     required
                     value={price}
                     onChange={updatePrice}
+                    className="create_input"
                 />
-                <button type='submit'>Create new Dome</button>
-                <button type='button' onClick={handleCancelClick}>
+                <button className="create_input" type='submit'>Create new Dome</button>
+                <button className="create_input" type='button' onClick={handleCancelClick}>
                     Cancel
                 </button>
                 <ul>
                     {errors.map((error, i) => <li className="create_errors" key={i}>{error}</li>)}
                 </ul>
+                </div>
             </form>
         </section>
     )

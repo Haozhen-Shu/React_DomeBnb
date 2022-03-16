@@ -41,28 +41,28 @@ const DomeDetail = () => {
                         <ul className="detail_info_container">
                         
                             <li>
-                                <b>userId</b> {dome?.userId}
+                                <b className="item_title">userId</b>{dome?.userId}
                             </li>
                             <li>
-                                <b>Address</b> {dome?.address}
+                                <b className="item_title">Address</b> {dome?.address}
                             </li>
                             <li>
-                                <b>City</b> {dome?.city}
+                                <b className="item_title">City</b> {dome?.city}
                             </li>
                             <li>
-                                <b>State</b> {dome?.state}
+                                <b className="item_title">State</b> {dome?.state}
                             </li>
                             <li>
-                                <b>Country</b> {dome?.country}
+                                <b className="item_title">Country</b> {dome?.country}
                             </li>
                             <li>
-                                <b>Name</b> {dome?.name}
+                                <b className="item_title">Name</b> {dome?.name}
                             </li>
                             <li>
-                                <b>Price</b> {dome?.price}
+                                <b className="item_title">Price($)</b> {dome?.price}
                             </li>
                         </ul>
-                        <div className="edit_btn_container">
+                        <div className="edit_btn_container_detail">
                             <button className="edit_btn" onClick={() => setShowEditDome(true)}>Edit</button>
                             <button className="delete_btn" onClick={handleRemoveItem}>Delete</button>
                         </div>

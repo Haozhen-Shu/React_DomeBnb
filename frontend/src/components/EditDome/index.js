@@ -12,12 +12,12 @@ const EditDome = ({dome, hideForm}) => {
         dispatch(sessionActions.restoreUser())
     }, [dispatch]);
 
-    const [address, setAddress] = useState('');
-    const [city, setCity] = useState('');
-    const [state, setState] = useState('');
-    const [country, setCountry] = useState('');
-    const [name, setName] = useState('')
-    const [price, setPrice] = useState(0);
+    const [address, setAddress] = useState(dome.address);
+    const [city, setCity] = useState(dome.city);
+    const [state, setState] = useState(dome.state);
+    const [country, setCountry] = useState(dome.country);
+    const [name, setName] = useState(dome.name)
+    const [price, setPrice] = useState(dome.price);
     const [errors, setErrors] = useState([]);
 
     useEffect(() => {
@@ -77,62 +77,71 @@ const EditDome = ({dome, hideForm}) => {
     return (
         <section className='edit_form_container'>
             <form className="edit_form" onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    placeholder="Address"
-                    required
-                    value={address}
-                    onChange={updateAddress}
-                    className="edit_input"
-                />
-                <input
-                    type="text"
-                    placeholder="City"
-                    required
-                    value={city}
-                    onChange={updateCity}
-                    className="edit_input"
-                />
-                <input
-                    type="text"
-                    placeholder="State"
-                    required
-                    value={state}
-                    onChange={updateState}
-                    className="edit_input"
-                />
-                <input
-                    type="text"
-                    placeholder="Country"
-                    required
-                    value={country}
-                    onChange={updateCountry}
-                    className="edit_input"
-                />
-                <input
-                    type="text"
-                    placeholder="Name"
-                    required
-                    value={name}
-                    onChange={updateName}
-                    className="edit_input"
-                />
-                <input
-                    type="number"
-                    placeholder="Price"
-                    required
-                    value={price}
-                    onChange={updatePrice}
-                    className="edit_input"
-                />
-                <button className="edit_btn" type='submit'>Update A Dome</button>
-                <button className="cancel_btn" type='button' onClick={handleCancelClick}>
-                    Cancel
-                </button>
-                <ul>
-                    {errors.map((error, i) => <li className="edit_errors" key={i}>{error}</li>)}
-                </ul>
-
+            <div className="label_input">
+                <div className="labels">
+                    <label>Address</label>
+                    <label>City</label>
+                    <label>State</label>
+                    <label>Country</label>
+                    <label>Name</label>
+                    <label>Price($/night)</label>
+                </div>
+                <div className="inputs">
+                    <input
+                        type="text"
+                        required
+                        value={address}
+                        onChange={updateAddress}
+                        className="edit_input"
+                    />
+                    <input
+                        type="text"
+                        required
+                        value={city}
+                        onChange={updateCity}
+                        className="edit_input"
+                    />
+                    <input
+                        type="text"
+                        required
+                        value={state}
+                        onChange={updateState}
+                        className="edit_input"
+                    />
+                    <input
+                        type="text"
+                        required
+                        value={country}
+                        onChange={updateCountry}
+                        className="edit_input"
+                    />
+                    <input
+                        type="text"
+                        required
+                        value={name}
+                        onChange={updateName}
+                        className="edit_input"
+                    />
+                    <input
+                        type="number"
+                        required
+                        value={price}
+                        onChange={updatePrice}
+                        className="edit_input"
+                    />
+                </div>
+            </div>
+            <div>
+                <div className="edit_cancel_btns">
+                    <button className="edit_btn" type='submit'>Update A Dome</button>
+                    <button className="cancel_btn" type='button' onClick={handleCancelClick}>
+                        Cancel
+                    </button>
+                </div>
+                    <ul>
+                        {errors.map((error, i) => <li className="edit_errors" key={i}>{error}</li>)}
+                    </ul>
+            </div>
             </form>
         </section>
     )

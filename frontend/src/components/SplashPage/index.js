@@ -16,11 +16,11 @@ const Splash = () => {
         <Redirect to='/spots' />
     )
     return (
-        <div className={styles.splash_container}>
-            <div className="splash_dom">
-                <img src="https://a0.muscache.com/im/pictures/9d753106-bce1-429f-91a3-ed2ac08ea29a.jpg?im_w=1200" alt="Dome" className="splash_img"></img>
-            </div>            
-        </div>
+       
+        <div className="splash_dom"> 
+            <img src="https://a0.muscache.com/im/pictures/9d753106-bce1-429f-91a3-ed2ac08ea29a.jpg?im_w=1200" alt="Dome" className="splash_img"></img>
+        </div> 
+      
     )
 }
 export default Splash;

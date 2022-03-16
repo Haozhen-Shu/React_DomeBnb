@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
+import {NavLink} from 'react-router-dom';
 import * as sessionActions from '../../store/session';
 
 function ProfileButton({ user }) {
@@ -23,9 +24,9 @@ function ProfileButton({ user }) {
         return () => document.removeEventListener("click", closeMenu);
     }, [showMenu]);
 
-    const logout = (e) => {
+    const logout = async(e) => {
         e.preventDefault();
-        dispatch(sessionActions.logout());
+        await dispatch(sessionActions.logout());
     };
 
     return (
@@ -36,8 +37,11 @@ function ProfileButton({ user }) {
             {/* {showMenu && ( */}
                 <div className="profile-dropdown">
                     {/* <p>WELCOME!</p> */}
+                     {/* <NavLink to="/" className="nav_logout">
+                        Log Out
+                    </NavLink> */}
                     <span>
-                        <button onClick={logout}>Log Out</button>
+                        <button className="nav_logout" onClick={logout}>Log Out</button>
                     </span>
                 </div>
             {/* )} */}

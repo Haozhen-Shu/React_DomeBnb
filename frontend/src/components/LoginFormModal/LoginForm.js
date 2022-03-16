@@ -47,45 +47,43 @@ function LoginForm() {
     };
     return (
         <div>
+        <div id="login_header_div">
+            <h2 id="login_header">Welcome Back!</h2>
+        </div>
         <form onSubmit={handleSubmit} id="login_form">
 
-            <div id="login_header_div">
-                <h2 id="login_header">Welcome Back!</h2>
-            </div>
-            <ul className="login_errors">
+            <div className="login_errors">
                 {errors.map((error, idx) => (
-                    <li id="errors" key={idx}>{error}</li>
+                    <div id="errors" key={idx}>{error}</div>
                 ))}
-            </ul>
+            </div>
             <div id="login_input_container">
-                <div className="login_input_div">
-                    <input
-                        type="text"
-                        value={credential}
-                        onChange={(e) => setCredential(e.target.value)}
-                        required
-                        className="login_input"
-                        placeholder="Username or Email"
-                    />
-                </div>
+                <input
+                    type="text"
+                    value={credential}
+                    onChange={(e) => setCredential(e.target.value)}
+                    required
+                    className="login_input"
+                    placeholder="Username or Email"
+                />
             
-                <div className="login_input_div">
-                        <input
-                            type="password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            required
-                            className="login_input"
-                            placeholder="Passord"
-                        />
-                </div>
+               
+                <input
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                    className="login_input"
+                    placeholder="Passord"
+                />
+                
             </div>
             <div id="login_btn_div">
                 <button className="login_btn" type="submit">Log In</button>
-                <button onClick={handleDemo}>Demo User</button>
+                <button className="login_btn" onClick={handleDemo}>Demo User</button>
             </div>
         </form>
-        </div>
+    </div>
     );
 }
 

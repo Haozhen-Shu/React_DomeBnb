@@ -25,12 +25,13 @@ function Navigation({ isLoaded }) {
         <nav id="nav">
             <div className="logo_container">        
                 <img className="logo" src='https://static.thenounproject.com/png/11999-200.png' alt='logo' ></img>
+                <p>DomeBnb</p>
             </div>
             <ul>
                 <li className="nav_btn_container">
-                    <NavLink exact to="/spots" className="nav_link" >Home</NavLink>
+                    {/* <NavLink exact to="/spots" className="nav_link" >Home</NavLink> */}
                     {isLoaded && sessionLinks}
-                <a href='https://github.com/Haozhen-Shu/React_DomeBnb' className="github_link">
+                <a href='https://github.com/Haozhen-Shu/React_DomeBnb' target="_blank" className="github_link">
                     GitHub
                 </a>
                 </li>
