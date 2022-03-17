@@ -21,7 +21,7 @@ function App() {
   return (
     <BrowserRouter>
       <Navigation isLoaded={isLoaded} />
-      {isLoaded && (
+          {isLoaded && (
         <Switch>
           <Route path="/signup">
             <SignupFormPage />
@@ -34,12 +34,10 @@ function App() {
             <Spots />
           </Route>
           <Route path='/' exact>
-            {/* <Navigation /> */}
-            {/* <LoginFormModal /> */}
             <Splash />
           </Route>
         </Switch>
-      )}
+       )}
    </BrowserRouter>
   );
 }
