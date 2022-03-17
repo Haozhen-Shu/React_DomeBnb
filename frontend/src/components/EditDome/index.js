@@ -131,7 +131,7 @@ const EditDome = ({dome, hideForm}) => {
                     />
                 </div>
             </div>
-            <div>
+            <div className="btns_errors">
                 <div className="edit_cancel_btns">
                     <button className="edit_btn" type='submit'>Update A Dome</button>
                     <button className="cancel_btn" type='button' onClick={handleCancelClick}>
