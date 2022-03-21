@@ -1,25 +1,25 @@
-Welcome to the DomeBnb ReadMe!
+# Welcome to the DomeBnb ReadMe!
 
 
-Summary
+## Summary
 
 DomeBnb is has a similar concept as Airbnb. It is a website to hosts to create, edit and delete the spots.
 
 
 
-Node Modules Installation
+## Node Modules Installation
 
-Backend:
+### Backend:
 
 In backend folder run npm install
 
-Frontend:
+### Frontend:
 
 In the frontend folder run npm install
 
 
 
-Database setting up
+### Database setting up
 
 In psql, CREATE USER WITH PASSWORD '' CREATEDB
 
@@ -28,12 +28,7 @@ Create .env file
 Copy .env-example into your own .env file Add some values from the file
 
 
-
-<<<<<<< HEAD
-
-=======
->>>>>>> 5351ed82741a7e0fbbe4ddad42917cf2f2c0e965
-Create the database as follows:
+### Create the database as follows:
 
 npx dotenv sequelize db:create
 
@@ -42,18 +37,15 @@ npx dotenv sequelize db:migrate
 npx dotenv sequelize db:seed:all
 
 
-
-<<<<<<< HEAD
-Start:
-=======
-Start
->>>>>>> 5351ed82741a7e0fbbe4ddad42917cf2f2c0e965
-
 Run npm start in both frontend and backend folder
 
 Ready to go
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 5351ed82741a7e0fbbe4ddad42917cf2f2c0e965
+## Screenshots
+![Screen Shot 2022-03-21 at 2 07 34 PM](https://user-images.githubusercontent.com/85038267/159364025-7070c52c-ed74-4d91-a81a-f3f2ff5a65f4.png)
+
+![Screen Shot 2022-03-21 at 2 07 44 PM](https://user-images.githubusercontent.com/85038267/159364058-f2cbe9ed-35f8-4318-8fdd-962de67aac37.png)
+
+![Screen Shot 2022-03-21 at 2 07 53 PM](https://user-images.githubusercontent.com/85038267/159364086-da0a7cac-9060-433d-bcb3-3860f0db221f.png)
+
